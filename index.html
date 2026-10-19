@@ -1,6 +1,6 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <meta charset="utf-8">
-<title>Tone Square Interim</title>
+<title>Tone Square IPC</title>
 <meta name="description" content="WPTA Australia International Piano Competitions, 2026 competition: categories, jury, venues and laureates.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -561,7 +561,7 @@ canvas.strings{position:absolute;inset:0;width:100%;height:100%;pointer-events:n
 .ih-text{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;padding-block:.3rem 0}
 .ih-text .ih-lower{display:flex;flex-direction:column;align-items:flex-start;width:100%}
 .ihero .h1.ih-title{font-size:clamp(2.4rem,min(4.8vw,9vh),5.4rem);line-height:1.12;letter-spacing:-.015em;margin:0}
-.ih-title em{display:inline-block;margin-top:.35em}
+.ih-title em{display:inline-block;margin-top:0}
 .ihero .ih-text .sub{margin-top:0;max-width:40ch}
 .ihero .ih-text .ctas{margin-top:3rem}
 .ih-film{position:relative;margin:0;display:grid;justify-items:center;gap:1.4rem}
@@ -807,6 +807,13 @@ table.cats td:first-child{padding-right:1rem}
   *{transition-duration:.01ms!important}
 }
 .founder-sec .ts-about{max-width:52ch;line-height:1.7;margin:0}
+/* hero links in the main-site style */
+.ihero .sub>p{margin:0}
+.ihero .ih-ctas{display:flex;flex-wrap:wrap;gap:1rem 2.75rem;margin-top:clamp(1.5rem,3.5vh,2.25rem);font-size:1rem;line-height:1.4}
+.ihero .sub .ih-ctas .link{display:inline-flex;gap:.6rem;align-items:center;color:var(--fg);font-weight:500;padding-bottom:4px;background:none;white-space:nowrap}
+.ihero .sub .ih-ctas .link::after{display:block}
+.ihero .sub .ih-ctas .link:hover{background:none}
+.ihero .ih-ctas{flex-direction:column;align-items:flex-start;gap:1.1rem}
 </style>
 
 <div id="grain" aria-hidden="true"></div>
@@ -850,7 +857,7 @@ table.cats td:first-child{padding-right:1rem}
         <div class="ih-anchor">
         <span class="label acc" data-load>Tone Square presents</span>
         <h1 class="h1 ih-title" data-split="load"><span class="wpta-line">WPTA Australia</span><br><em><span class="intl-word">International</span><br><span class="nw">Piano Competitions</span></em></h1>
-          <p class="lede sub" data-load>A stage without borders for young and emerging pianists. <a class="link" href="#laureates">2026 competition results&nbsp;<span class="arr" aria-hidden="true">→</span></a></p>
+          <div class="lede sub" data-load><p>A stage without borders for young and emerging pianists.</p><div class="ctas ih-ctas"><a class="link" href="#contact" data-topic="2027 competition – register interest">2027 competition – register interest <span class="arr" aria-hidden="true">→</span></a><a class="link" href="#laureates">2026 competition – see results <span class="arr" aria-hidden="true">→</span></a></div></div>
         </div>
         <div class="ih-lower">
           <div class="ih-partners">
@@ -945,7 +952,7 @@ table.cats td:first-child{padding-right:1rem}
         <div class="venue" data-reveal><h3>Kolarac Endowment Concert Hall</h3><p class="muted">Laureate recital</p><span class="city">Belgrade</span></div>
         <div class="venue" data-reveal><h3>North Adelaide<br>Baroque Hall</h3><p class="muted">Laureate recital</p><span class="city">Adelaide</span></div>
       </div>
-      <p class="muted" data-reveal style="margin-top:1.75rem">Prizes included up to €1,000 cash, masterclasses in Vienna, Hong Kong and Novi Sad, and scholarship courses in Madrid.</p>
+      <p class="muted" data-reveal style="margin-top:1.75rem">Prizes included €250–€1,000 cash, masterclasses in Vienna, Hong Kong and Novi Sad, and scholarship courses in Madrid.</p>
     </div>
   </section>
 
@@ -1060,7 +1067,7 @@ table.cats td:first-child{padding-right:1rem}
             <div class="field"><label for="cName">Name</label><input id="cName" name="name" type="text" autocomplete="name" required></div>
             <div class="field"><label for="cEmail">Email</label><input id="cEmail" name="email" type="email" autocomplete="email" required></div>
           </div>
-          <div class="field"><label for="cTopic">Topic</label><select id="cTopic" name="topic"><option>General enquiry</option><option>Competition</option><option>Results and laureates</option><option>Partnerships</option><option>Performances</option></select></div>
+          <div class="field"><label for="cTopic">Topic</label><select id="cTopic" name="topic"><option>General enquiry</option><option>2027 competition – register interest</option><option>Competition</option><option>Results and laureates</option><option>Partnerships</option><option>Performances</option></select></div>
           <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" name="message" rows="6" required></textarea></div>
           <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
           <p class="cform-err" id="cErr" role="alert" hidden></p>
@@ -1352,6 +1359,24 @@ table.cats td:first-child{padding-right:1rem}
     if (ANIM) G.from(done, {opacity:0, y:20, duration:.8, ease:'expo.out'});
   });
 
+  /* links that open the contact form with a topic chosen */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('[data-topic]'); if (!a) return;
+    var f = document.getElementById('contactForm'); if (f) f.topic.value = a.getAttribute('data-topic');
+  });
+  /* standard form post to FormSubmit; it shows its own confirmation, then returns here */
+  function fsClassic(data){
+    var f=document.createElement('form'); f.method='POST'; f.action='https://formsubmit.co/info@tonesquare.com'; f.style.display='none';
+    var back=location.href.split('#')[0].split('?')[0]+'?sent=1#contact';
+    var all=Object.assign({}, data, {_next:back, _captcha:'false'});
+    Object.keys(all).forEach(function(k){ var i=document.createElement('input'); i.type='hidden'; i.name=k; i.value=all[k]==null?'':String(all[k]); f.appendChild(i); });
+    document.body.appendChild(f); f.submit();
+  }
+  if (/[?&]sent=1/.test(location.search)) {
+    var cd0=document.getElementById('cDone'), cs0=document.getElementById('cSend');
+    if (cd0){ cd0.hidden=false; if (cs0) cs0.parentNode.hidden=true; }
+    if (!/#contact/.test(location.hash)) location.hash='contact';
+  }
   /* contact form: sends to info@tonesquare.com via FormSubmit */
   var cf = document.getElementById('contactForm');
   if (cf) cf.addEventListener('submit', function(e){
@@ -1361,20 +1386,23 @@ table.cats td:first-child{padding-right:1rem}
     var miss = [];
     if (!name) miss.push('your name');
     if (!/^\S+@\S+\.\S+$/.test(email)) miss.push('a valid email');
-    if (!msg) miss.push('a message');
+    var isRI = /^2027 competition/.test(topic);
+    if (!msg && !isRI) miss.push('a message');
     if (miss.length){ cErr.textContent = 'Please add ' + (miss.length>1 ? miss.slice(0,-1).join(', ')+' and '+miss[miss.length-1] : miss[0]) + '.'; cErr.hidden = false; return; }
     if (cf._honey.value) return;
     cErr.hidden = true; cSend.disabled = true;
+    var payload = {name:name, email:email, topic:topic, message:msg, _subject:(isRI ? topic : 'Website enquiry: '+topic), _replyto:email, _template:'table'};
     fetch('https://formsubmit.co/ajax/info@tonesquare.com', {
       method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify({name:name, email:email, topic:topic, message:msg, _subject:'Website enquiry: '+topic, _replyto:email, _template:'table'})
-    }).then(function(r){ return r.json().then(function(d){ if (!r.ok || d.success === false || d.success === 'false') throw new Error(d.message||'failed'); }); })
+      body: JSON.stringify(payload)
+    }).then(function(r){ return r.json().then(function(d){ if (!r.ok || d.success === false || d.success === 'false') throw new Error(d.message||('HTTP '+r.status)); }); })
     .then(function(){
       cf.reset(); cSend.parentNode.hidden = true; cDone.hidden = false;
       if (ANIM) G.from(cDone, {opacity:0, y:16, duration:.8, ease:'expo.out'});
-    }).catch(function(){
-      cSend.disabled = false;
-      cErr.textContent = 'Sorry, your message could not be sent. Please try again in a moment.'; cErr.hidden = false;
+    }).catch(function(err){
+      /* the quick (background) send failed: log why, then send the classic way, which FormSubmit always accepts */
+      if (window.console) console.warn('Contact form: background send failed, using standard submit.', err && err.message);
+      fsClassic(payload);
     });
   });
 
@@ -1651,6 +1679,24 @@ table.cats td:first-child{padding-right:1rem}
   var w=document.querySelector('.wpta-line'), r=document.querySelector('.intl-word'); if(!w||!r) return;
   function fit(){ w.style.fontSize=''; var tw=r.getBoundingClientRect().width, ww=w.getBoundingClientRect().width; if(tw&&ww) w.style.fontSize=(Math.min(1,tw/ww)*0.97)+'em'; }
   fit(); addEventListener('resize',fit); addEventListener('load',fit); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit); setTimeout(fit,1500);
+})();
+</script>
+<script>
+/* centre the hero text block between the header and the logo row: equal space above and below */
+(function(){
+  var an=document.querySelector('.ih-anchor'), lab=an&&an.querySelector('.label'), sub=an&&an.querySelector('.sub'), low=document.querySelector('.ih-lower'), hdr=document.querySelector('.hdr');
+  if(!an||!lab||!sub||!low||!hdr) return;
+  function fit(){
+    if(window.innerWidth<901 || !an.offsetParent){ an.style.transform=''; return; }
+    an.style.transform='none';
+    var hb=hdr.getBoundingClientRect().bottom + (window.scrollY||0) - (an.closest('section').getBoundingClientRect().top + (window.scrollY||0));
+    var sec=an.closest('section').getBoundingClientRect().top;
+    var rt=hdr.offsetHeight, rb=low.getBoundingClientRect().top-sec;
+    var gt=lab.getBoundingClientRect().top-sec, gb=sub.getBoundingClientRect().bottom-sec;
+    var shift=((rt+rb)-(gt+gb))/2;
+    an.style.transform='translateY('+shift.toFixed(1)+'px)';
+  }
+  fit(); addEventListener('resize',fit); addEventListener('load',fit); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit); setTimeout(fit,1600);
 })();
 </script>
 
