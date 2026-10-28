@@ -814,6 +814,29 @@ table.cats td:first-child{padding-right:1rem}
 .ihero .sub .ih-ctas .link::after{display:block}
 .ihero .sub .ih-ctas .link:hover{background:none}
 .ihero .ih-ctas{flex-direction:column;align-items:flex-start;gap:1.1rem}
+.lg-ausgov{height:64px!important}
+@media (max-width:900px){.lg-ausgov{height:50px!important}}
+.partner-logos .lg-ausgov{height:92px!important}
+@media (max-width:820px){.partner-logos .lg-ausgov{max-height:66px}}
+@media (min-width:821px){.partner-logos{display:flex!important;flex-wrap:wrap;justify-content:center;column-gap:0!important}.partner-logos li{flex:0 0 20%;max-width:20%}}
+@media (max-width:820px){.partner-logos li:last-child:nth-child(odd){grid-column:1/-1}}
+.logo-row .lg-ausgov{opacity:1}
+.partner-logos .lg-adelaide{height:38px!important}
+@media (max-width:820px){.partner-logos .lg-adelaide{max-height:30px}}
+.logo-row .lg-adelaide{height:28px!important}
+@media (max-width:900px){.logo-row .lg-adelaide{height:22px!important}}
+/* privacy page */
+.policy{max-width:68ch}
+.policy-date{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 2.5rem}
+.policy h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.35rem,2vw,1.65rem);margin:2.6rem 0 .8rem;color:var(--fg)}
+.policy h3:first-of-type{margin-top:0}
+.policy p{color:var(--muted);line-height:1.75;margin:0}
+.policy .link{color:var(--fg)}
+.cform-privacy{font-size:.9rem;color:var(--muted);margin:0;line-height:1.6}
+.cform-privacy a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--acc);padding-bottom:1px}
+.cform-privacy a:hover{border-color:var(--fg)}
+@media (min-width:821px){.partner-logos li{flex:0 0 25%!important;max-width:25%!important}}
+.policy .policy-date{margin-bottom:2.75rem}
 </style>
 
 <div id="grain" aria-hidden="true"></div>
@@ -861,7 +884,7 @@ table.cats td:first-child{padding-right:1rem}
         </div>
         <div class="ih-lower">
           <div class="ih-partners">
-            <div class="logo-marquee"><ul class="logo-row logo-track"><li><img src="logos/bechstein.png" alt="C. Bechstein" class="lg-bechstein"></li><li><img src="logos/ehrbar-saal.png" alt="Ehrbar Saal" class="lg-ehrbar"></li><li><img src="logos/musik-quartier.png" alt="Musik-Quartier" class="lg-mq"></li><li><img src="logos/wpta.png" alt="WPTA, World Piano Teachers Association" class="lg-wpta"></li><li><img src="logos/adelaide.png" alt="North Adelaide Baroque Hall" class="lg-adelaide"></li><li><img src="logos/leon.png" alt="León Piano Meeting" class="lg-leon"></li><li><img src="logos/octavus.png" alt="Octavus Music" class="lg-octavus"></li><li><img src="logos/stari-grad.png" alt="City Municipality of Stari Grad" class="lg-stari"></li><li aria-hidden="true"><img src="logos/bechstein.png" alt="" class="lg-bechstein"></li><li aria-hidden="true"><img src="logos/ehrbar-saal.png" alt="" class="lg-ehrbar"></li><li aria-hidden="true"><img src="logos/musik-quartier.png" alt="" class="lg-mq"></li><li aria-hidden="true"><img src="logos/wpta.png" alt="" class="lg-wpta"></li><li aria-hidden="true"><img src="logos/adelaide.png" alt="" class="lg-adelaide"></li><li aria-hidden="true"><img src="logos/leon.png" alt="" class="lg-leon"></li><li aria-hidden="true"><img src="logos/octavus.png" alt="" class="lg-octavus"></li><li aria-hidden="true"><img src="logos/stari-grad.png" alt="" class="lg-stari"></li></ul></div>
+            <div class="logo-marquee"><ul class="logo-row logo-track"><li><img src="logos/bechstein.png" alt="C. Bechstein" class="lg-bechstein"></li><li><img src="logos/ehrbar-saal.png" alt="Ehrbar Saal" class="lg-ehrbar"></li><li><img src="logos/musik-quartier.png" alt="Musik-Quartier" class="lg-mq"></li><li><img src="logos/wpta.png" alt="WPTA, World Piano Teachers Association" class="lg-wpta"></li><li><img src="logos/adelaide.png" alt="North Adelaide Baroque Hall" class="lg-adelaide"></li><li><img src="logos/leon.png" alt="León Piano Meeting" class="lg-leon"></li><li><img src="logos/octavus.png" alt="Octavus Music" class="lg-octavus"></li><li aria-hidden="true"><img src="logos/bechstein.png" alt="" class="lg-bechstein"></li><li aria-hidden="true"><img src="logos/ehrbar-saal.png" alt="" class="lg-ehrbar"></li><li aria-hidden="true"><img src="logos/musik-quartier.png" alt="" class="lg-mq"></li><li aria-hidden="true"><img src="logos/wpta.png" alt="" class="lg-wpta"></li><li aria-hidden="true"><img src="logos/adelaide.png" alt="" class="lg-adelaide"></li><li aria-hidden="true"><img src="logos/leon.png" alt="" class="lg-leon"></li><li aria-hidden="true"><img src="logos/octavus.png" alt="" class="lg-octavus"></li></ul></div>
           </div>
         </div>
       </div>
@@ -887,7 +910,7 @@ table.cats td:first-child{padding-right:1rem}
       <p class="big" data-scrub>Talent is everywhere. Opportunity <em>isn't.</em></p>
       <div class="after">
         <span></span>
-        <p class="muted" data-reveal>Led by Dr Julijana Sarac, the WPTA Australia International Piano Competitions remove geographical barriers, so young and emerging pianists can perform and connect internationally. In the 2026 competition, pianists entered by video and were judged by an international jury, and prize-winners went on to perform in Vienna, Belgrade and Adelaide.</p>
+        <p class="muted" data-reveal>Led by Dr Julijana Sarac, the WPTA Australia International Piano Competitions remove geographical barriers, so young and emerging pianists can perform and connect internationally. In the 2026 competition, pianists entered by video and were judged by an international jury, and prize-winners went on to perform in Vienna and Adelaide.</p>
         <span></span>
       </div>
     </div>
@@ -949,7 +972,6 @@ table.cats td:first-child{padding-right:1rem}
       <div class="venues">
         <div class="venue" data-reveal><h3>Ehrbar Saal</h3><p class="muted">Prize Winners' Gala Concert and Award Ceremony</p><span class="city">Vienna</span></div>
         <div class="venue" data-reveal><h3>Mozarthaus</h3><p class="muted">Gala Concert</p><span class="city">Vienna</span></div>
-        <div class="venue" data-reveal><h3>Kolarac Endowment Concert Hall</h3><p class="muted">Laureate recital</p><span class="city">Belgrade</span></div>
         <div class="venue" data-reveal><h3>North Adelaide<br>Baroque Hall</h3><p class="muted">Laureate recital</p><span class="city">Adelaide</span></div>
       </div>
       <p class="muted" data-reveal style="margin-top:1.75rem">Prizes included €250–€1,000 cash, masterclasses in Vienna, Hong Kong and Novi Sad, and scholarship courses in Madrid.</p>
@@ -985,7 +1007,7 @@ table.cats td:first-child{padding-right:1rem}
   <section class="sec light pad">
     <div class="wrap grid-2">
       <div class="stack pl-head"><span class="label acc" data-reveal>Competition 2026 · Partners</span><h2 class="h2" data-split>With the support <em>of</em></h2></div>
-      <ul class="partner-logos" data-reveal><li><img src="logos/colour/bechstein.png" alt="C. Bechstein" class="lg-bechstein" loading="lazy"></li><li><img src="logos/colour/ehrbar-saal.png" alt="Ehrbar Saal" class="lg-ehrbar" loading="lazy"></li><li><img src="logos/colour/musik-quartier.png" alt="Musik-Quartier" class="lg-mq" loading="lazy"></li><li><img src="logos/colour/octavus.png" alt="Octavus Music" class="lg-octavus" loading="lazy"></li><li><img src="logos/colour/wpta.png" alt="WPTA Italy" class="lg-wpta" loading="lazy"></li><li><img src="logos/colour/stari-grad.png" alt="City Municipality of Stari Grad" class="lg-stari" loading="lazy"></li><li><img src="logos/colour/leon.png" alt="León Piano Meeting" class="lg-leon" loading="lazy"></li><li><img src="logos/colour/adelaide.png" alt="North Adelaide Baroque Hall" class="lg-adelaide" loading="lazy"></li></ul>
+      <ul class="partner-logos" data-reveal><li><img src="logos/colour/bechstein.png" alt="C. Bechstein" class="lg-bechstein" loading="lazy"></li><li><img src="logos/colour/ehrbar-saal.png" alt="Ehrbar Saal" class="lg-ehrbar" loading="lazy"></li><li><img src="logos/colour/musik-quartier.png" alt="Musik-Quartier" class="lg-mq" loading="lazy"></li><li><img src="logos/colour/octavus.png" alt="Octavus Music" class="lg-octavus" loading="lazy"></li><li><img src="logos/colour/wpta.png" alt="WPTA Italy" class="lg-wpta" loading="lazy"></li><li><img src="logos/colour/leon.png" alt="León Piano Meeting" class="lg-leon" loading="lazy"></li><li><img src="logos/colour/adelaide.png" alt="North Adelaide Baroque Hall" class="lg-adelaide" loading="lazy"></li></ul>
     </div>
   </section>
 </div>
@@ -1072,9 +1094,45 @@ table.cats td:first-child{padding-right:1rem}
           <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
           <p class="cform-err" id="cErr" role="alert" hidden></p>
           <div><button type="submit" class="link cform-send" id="cSend">Send message <span class="arr" aria-hidden="true">→</span></button></div>
+          <p class="cform-privacy">We use your details only to reply to you. <a href="#privacy">Read our privacy policy</a></p>
           <p class="cform-done" id="cDone" role="status" hidden>Thank you. Your message has been sent, and we'll be in touch soon.</p>
         </form>
       </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= PRIVACY ======================= -->
+<div class="page" data-page="privacy" hidden>
+  <section class="sec dark phero" style="min-height:min(64svh,620px)" data-strings-host>
+    <div class="stage dim" aria-hidden="true"><i></i></div>
+    <div class="wrap">
+      <span class="label acc" data-load>Privacy</span>
+      <h1 class="h1" data-split="load" style="margin-top:1.5rem">Privacy <em>policy.</em></h1>
+      <p class="lede sub" data-load>How we handle the details you send us through the contact form.</p>
+    </div>
+  </section>
+  <section class="sec dark pad" style="padding-top:clamp(2rem,5vw,4rem)">
+    <div class="wrap policy">
+      <p class="policy-date">Last updated 28 October 2026</p>
+      <h3>Who we are</h3>
+      <p>This website is run by Tone Square. In this policy, “we” and “us” mean Tone Square.</p>
+      <h3>What we collect</h3>
+      <p>We collect only what you type into the contact form: your name, your email address, the topic you choose and your message. We don’t ask for anything else, and there are no accounts or sign-ups.</p>
+      <h3>How we use it</h3>
+      <p>We use your details only to read your enquiry and get back to you. We don’t add you to a mailing list, send you marketing, or use your details for any other purpose.</p>
+      <h3>Who sees it</h3>
+      <p>Your message is delivered to our email inbox by FormSubmit (formsubmit.co), a form-delivery service, which handles it only to pass it on to us. We don’t sell, rent or share your details with anyone else.</p>
+      <h3>How long we keep it</h3>
+      <p>We keep your message only for as long as we need to reply to you and deal with any follow-up.</p>
+      <h3>Your choices</h3>
+      <p>You can ask us at any time to show you, correct or delete the details you’ve sent us. Just send a request through the contact form and we’ll act on it promptly.</p>
+      <h3>Cookies and other services</h3>
+      <p>This website doesn’t use cookies, analytics or advertising trackers. Like most websites, it loads fonts and code libraries from third-party providers (Google Fonts, cdnjs and jsDelivr). Your browser shares standard technical information with them, such as your IP address, when the page loads.</p>
+      <h3>Changes to this policy</h3>
+      <p>If we change this policy, we’ll update the date at the top of this page.</p>
+      <h3>Questions</h3>
+      <p>If you have a question about your privacy, please <a class="link" href="#contact">send us a message <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </section>
 </div>
@@ -1092,7 +1150,7 @@ table.cats td:first-child{padding-right:1rem}
         <ul class="foot-list"><li><a href="#home">Competition</a></li><li><a href="#laureates">Laureates</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact</a></li></ul>
       </div>
       <div><span class="label">Contact</span>
-        <ul class="foot-list"><li><a href="#contact">Contact form</a></li></ul>
+        <ul class="foot-list"><li><a href="#contact">Contact form</a></li><li><a href="#privacy">Privacy policy</a></li></ul>
       </div>
     </div>
   </div>
@@ -1567,7 +1625,7 @@ table.cats td:first-child{padding-right:1rem}
   window.addEventListener('hashchange', function(){ hdr.classList.remove('hide'); });
 
   /* REVIEW ONLY: section labels for markups (LDS1, ACS3 ...). Remove before launch. */
-  var CODES = {home:'IN', laureates:'LA', contact:'CT'};
+  var CODES = {home:'IN', laureates:'LA', gallery:'GA', contact:'CT', privacy:'PR'};
   pages.forEach(function(p){
     Array.prototype.filter.call(p.children, function(c){ return c.tagName === 'SECTION'; }).forEach(function(sec, i){
       var tag = document.createElement('span'); tag.className = 'seclabel'; tag.textContent = CODES[p.dataset.page] + 'S' + (i+1);
