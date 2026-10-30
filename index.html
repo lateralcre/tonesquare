@@ -1122,7 +1122,7 @@ table.cats td:first-child{padding-right:1rem}
       <h3>How we use it</h3>
       <p>We use your details only to read your enquiry and get back to you. We don’t add you to a mailing list, send you marketing, or use your details for any other purpose.</p>
       <h3>Who sees it</h3>
-      <p>Your message is delivered to our email inbox by FormSubmit (formsubmit.co), a form-delivery service, which handles it only to pass it on to us. We don’t sell, rent or share your details with anyone else.</p>
+      <p>Your message is delivered to our email inbox by Web3Forms (web3forms.com), a form-delivery service, which handles it only to pass it on to us. We don’t sell, rent or share your details with anyone else.</p>
       <h3>How long we keep it</h3>
       <p>We keep your message only for as long as we need to reply to you and deal with any follow-up.</p>
       <h3>Your choices</h3>
@@ -1422,20 +1422,16 @@ table.cats td:first-child{padding-right:1rem}
     var a = e.target.closest && e.target.closest('[data-topic]'); if (!a) return;
     var f = document.getElementById('contactForm'); if (f) f.topic.value = a.getAttribute('data-topic');
   });
-  /* standard form post to FormSubmit; it shows its own confirmation, then returns here */
-  function fsClassic(data){
-    var f=document.createElement('form'); f.method='POST'; f.action='https://formsubmit.co/info@tonesquare.com'; f.style.display='none';
-    var back=location.href.split('#')[0].split('?')[0]+'?sent=1#contact';
-    var all=Object.assign({}, data, {_next:back, _captcha:'false'});
-    Object.keys(all).forEach(function(k){ var i=document.createElement('input'); i.type='hidden'; i.name=k; i.value=all[k]==null?'':String(all[k]); f.appendChild(i); });
-    document.body.appendChild(f); f.submit();
+  /* Web3Forms: the access key comes from web3forms.com (sent to info@tonesquare.com when you create it) */
+  var W3F_KEY = '0fcf1a12-740b-4b63-9f87-0760c79abdc8';
+  function w3fSend(p){
+    var data = {access_key: W3F_KEY, subject: p._subject || 'Website enquiry', from_name: 'Tone Square website', botcheck: ''};
+    Object.keys(p).forEach(function(k){ if (k.charAt(0) !== '_') data[k] = p[k]; });
+    return fetch('https://api.web3forms.com/submit', {
+      method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data)
+    }).then(function(r){ return r.json().then(function(d){ if (!r.ok || !d.success) throw new Error(d.message || ('HTTP '+r.status)); }); });
   }
-  if (/[?&]sent=1/.test(location.search)) {
-    var cd0=document.getElementById('cDone'), cs0=document.getElementById('cSend');
-    if (cd0){ cd0.hidden=false; if (cs0) cs0.parentNode.hidden=true; }
-    if (!/#contact/.test(location.hash)) location.hash='contact';
-  }
-  /* contact form: sends to info@tonesquare.com via FormSubmit */
+  /* contact form: sends to info@tonesquare.com via Web3Forms */
   var cf = document.getElementById('contactForm');
   if (cf) cf.addEventListener('submit', function(e){
     e.preventDefault();
@@ -1450,17 +1446,14 @@ table.cats td:first-child{padding-right:1rem}
     if (cf._honey.value) return;
     cErr.hidden = true; cSend.disabled = true;
     var payload = {name:name, email:email, topic:topic, message:msg, _subject:(isRI ? topic : 'Website enquiry: '+topic), _replyto:email, _template:'table'};
-    fetch('https://formsubmit.co/ajax/info@tonesquare.com', {
-      method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify(payload)
-    }).then(function(r){ return r.json().then(function(d){ if (!r.ok || d.success === false || d.success === 'false') throw new Error(d.message||('HTTP '+r.status)); }); })
+    w3fSend(payload)
     .then(function(){
       cf.reset(); cSend.parentNode.hidden = true; cDone.hidden = false;
       if (ANIM) G.from(cDone, {opacity:0, y:16, duration:.8, ease:'expo.out'});
     }).catch(function(err){
-      /* the quick (background) send failed: log why, then send the classic way, which FormSubmit always accepts */
-      if (window.console) console.warn('Contact form: background send failed, using standard submit.', err && err.message);
-      fsClassic(payload);
+      if (window.console) console.warn('Contact form: send failed.', err && err.message);
+      cSend.disabled = false;
+      cErr.textContent = 'Sorry, your message could not be sent. Please try again in a moment.'; cErr.hidden = false;
     });
   });
 
